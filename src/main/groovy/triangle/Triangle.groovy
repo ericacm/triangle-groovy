@@ -55,11 +55,6 @@ class Triangle {
         }
 
         root
-    }       
-    
-    // Type-safe clone()
-    private LinkedList<Integer> newList(Collection<Integer> original) {
-        new LinkedList<Integer>(original)
     }
 
     // Compute the maxPath at each node
@@ -80,5 +75,10 @@ class Triangle {
         node.maxPath.addFirst(node.value)
         newList(node.maxPath)
       }
-    }  
+    }
+
+    // Clone list
+    private LinkedList<Integer> newList(Collection<Integer> original) {
+        new LinkedList<Integer>(original)
+    }
 }
