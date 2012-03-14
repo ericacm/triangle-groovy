@@ -63,23 +63,23 @@ class Triangle {
         
       // If node has already been computed don't recompute it
       if (node.maxPath != null) {
-        newList(node.maxPath)
+        copyList(node.maxPath)
           
       // Leaf node
       } else if (node.left == null && node.right == null) {
-        newList([node.value])
+        copyList([node.value])
           
       } else {  // Recurse depth-first
         def listLeft = traverse(node.left)
         def listRight = traverse(node.right)
         node.maxPath = listLeft.sum() > listRight.sum() ? listLeft : listRight
         node.maxPath.addFirst(node.value)
-        newList(node.maxPath)
+        copyList(node.maxPath)
       }
     }
 
     // Clone list
-    private LinkedList<Integer> newList(Collection<Integer> original) {
+    private LinkedList<Integer> copyList(Collection<Integer> original) {
         new LinkedList<Integer>(original)
     }
 }
