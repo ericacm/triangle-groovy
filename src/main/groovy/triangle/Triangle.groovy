@@ -33,10 +33,11 @@ class Triangle {
             List<TNode> thisLineNodes = line.split(" ").collect { i -> new TNode(Integer.parseInt(i)) }
 
             if (lastLineNodes != null && thisLineNodes.size() != lastLineNodes.size() + 1) {
-                throw new InvalidInputException("Invalid number of nodes on line: " + line)
+                throw new InvalidInputException("Invalid number of values on line: " + line)
             }
 
             if (root == null) {   
+                if (thisLineNodes.size() != 1) throw new InvalidInputException("First line has more than one value: " + line)
                 // First line has one node, use it as root 
                 root = thisLineNodes[0]
                 

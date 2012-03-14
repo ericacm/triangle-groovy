@@ -57,4 +57,10 @@ class TriangleTest {
         String filename = RESOURCES + "triangle_test_more_nodes.txt"
         new Triangle(filename)
     }
+
+    @Test(expected = InvalidInputException.class)
+    void firstLineMore() {
+        String filename = RESOURCES + "triangle_test_first_line_more.txt"
+        new Triangle(filename)
+    }
 }
