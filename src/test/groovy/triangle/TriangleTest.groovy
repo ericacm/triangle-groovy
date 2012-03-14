@@ -34,6 +34,13 @@ class TriangleTest {
         Assert.assertEquals(42, t.maxPath.sum())
     }
 
+    @Test
+    void bertTriangle() {
+        String filename = RESOURCES + "bert.txt"
+        Triangle t = new Triangle(filename)
+        Assert.assertEquals(10001, t.maxPath.sum())
+    }
+
     @Test(expected = InvalidInputException.class)
     void noInput() {
         String filename = RESOURCES + "triangle_test_empty.txt"
