@@ -42,19 +42,19 @@ class TriangleTest {
 
     @Test(expected = InvalidInputException.class)
     void nonNumeric() {
-        String filename = RESOURCES + "/triangle_test_non_numeric.txt"
+        String filename = RESOURCES + "triangle_test_non_numeric.txt"
         new Triangle(filename)
     }
 
     @Test(expected = InvalidInputException.class)
     void fewerNodes() {
-        String filename = RESOURCES + "/triangle_test_fewer_nodes.txt"
+        String filename = RESOURCES + "triangle_test_fewer_nodes.txt"
         new Triangle(filename)
     }
 
     @Test(expected = InvalidInputException.class)
     void moreNodes() {
-        String filename = RESOURCES + "/triangle_test_more_nodes.txt"
+        String filename = RESOURCES + "triangle_test_more_nodes.txt"
         new Triangle(filename)
     }
 }
