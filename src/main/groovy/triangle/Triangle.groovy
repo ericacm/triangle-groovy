@@ -30,7 +30,7 @@ class Triangle {
             if (line.length() == 0) return  // Skip blank lines
 
             // Parse current line into nodes without children set
-            List<TNode> thisLineNodes = line.split(" ").collect { i -> new TNode(Integer.parseInt(i)) }
+            List<TNode> thisLineNodes = line.tokenize().collect { i -> new TNode(Integer.parseInt(i)) }
 
             if (lastLineNodes != null && thisLineNodes.size() != lastLineNodes.size() + 1) {
                 throw new InvalidInputException("Invalid number of values on line: " + line)
