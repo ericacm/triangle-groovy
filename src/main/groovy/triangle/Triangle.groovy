@@ -75,13 +75,13 @@ class Triangle {
         def listRight = traverse(node.right)
         if (node.left.sum > node.right.sum) {
             node.sum = node.left.sum + node.value
-            node.maxPath = listLeft
+            node.maxPath = copyList(listLeft)
         } else {
             node.sum = node.right.sum + node.value
-            node.maxPath = listRight
+            node.maxPath = copyList(listRight)
         }
         node.maxPath.addFirst(node.value)
-        copyList(node.maxPath)
+        node.maxPath
       }
     }
 
