@@ -1,13 +1,12 @@
 package triangle
 
 class Triangle {
-    private final List<Integer> maxPath
+    private TNode root = null
 
-    public List<Integer> getMaxPath() { maxPath }
+    public List<Integer> getMaxPath() { root.maxPath }
+    public long getSum() { root.sum }
     
     public Triangle(String filename) {
-        TNode root = null
-
         try {
             root = buildTree(filename)
 
@@ -19,7 +18,7 @@ class Triangle {
             throw new InvalidInputException("No triangle in " + filename)
         }
 
-        maxPath = traverse(root)
+        traverse(root)
     }
     
     private TNode buildTree(String filename) {
@@ -58,7 +57,7 @@ class Triangle {
         root
     }
 
-    // Compute the maxPath at each node
+    // Compute the maxPath and sum at each node
     private LinkedList<Integer> traverse(TNode node) {
         
       // If node has already been computed don't recompute it

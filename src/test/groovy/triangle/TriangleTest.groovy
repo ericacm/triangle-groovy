@@ -10,35 +10,35 @@ class TriangleTest {
     void smallTriangle() {
         String filename = RESOURCES + "triangle_test_4rows.txt"
         Triangle t = new Triangle(filename)
-        Assert.assertEquals(27, t.maxPath.sum())
+        Assert.assertEquals(27, t.sum)
     }
 
     @Test
     void bigTriangle() {
         String filename = RESOURCES + "triangle_test_100rows.txt"
         Triangle t = new Triangle(filename)
-        Assert.assertEquals(732506, t.maxPath.sum())    // Assuming this is correct
+        Assert.assertEquals(732506, t.sum)    // Assuming this is correct
     }
 
     @Test
     void triangleWithBlankLines() {
         String filename = RESOURCES + "triangle_test_4rows_with_blank_lines.txt"
         Triangle t = new Triangle(filename)
-        Assert.assertEquals(27, t.maxPath.sum())
+        Assert.assertEquals(27, t.sum)
     }
 
     @Test
     void oneLineTriangle() {
         String filename = RESOURCES + "triangle_test_1row.txt"
         Triangle t = new Triangle(filename)
-        Assert.assertEquals(42, t.maxPath.sum())
+        Assert.assertEquals(42, t.sum)
     }
 
     @Test
     void bertTriangle() {
         String filename = RESOURCES + "bert.txt"
         Triangle t = new Triangle(filename)
-        Assert.assertEquals(10001, t.maxPath.sum())
+        Assert.assertEquals(10001, t.sum)
     }
 
     @Test(expected = InvalidInputException.class)
