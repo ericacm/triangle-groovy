@@ -63,16 +63,23 @@ class Triangle {
         
       // If node has already been computed don't recompute it
       if (node.maxPath != null) {
-        copyList(node.maxPath)
+        node.maxPath
           
       // Leaf node
       } else if (node.left == null && node.right == null) {
-        copyList([node.value])
+        node.sum = node.value  
+        copyList([node.value])                                                 
           
       } else {  // Recurse depth-first
         def listLeft = traverse(node.left)
         def listRight = traverse(node.right)
-        node.maxPath = listLeft.sum() > listRight.sum() ? listLeft : listRight
+        if (node.left.sum > node.right.sum) {
+            node.sum = node.left.sum + node.value
+            node.maxPath = listLeft
+        } else {
+            node.sum = node.right.sum + node.value
+            node.maxPath = listRight
+        }
         node.maxPath.addFirst(node.value)
         copyList(node.maxPath)
       }
